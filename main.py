@@ -39,8 +39,7 @@ if len(sys.argv) > 1:
 
 
 # counting the number of files
-folder = Path(search_path)
-total_count = len(list(folder.rglob("*")))
+total_count = sum(1 for _ in Path(search_path).rglob('*') if _.is_file())
 
 # use progressbar
 begin_time = time.time()
